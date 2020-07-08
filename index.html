@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet-Tinder</title>
+  <link rel="shortcut icon"
+    href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQspjwtrs1U1WYlM7DKYRMwLW8iNGQN8enZbg&usqp=CAU"
+    type="image/icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+  <header class="card-panel teal darken-2">
+    <div>
+      <h1><i class="icon large material-icons">pets</i>Pet Tinder<i class="icon large material-icons">pets</i></h1>
+      </div>
+  </header>
+
+  <div class="row">
+    <div class="col s4" id="pet-form">
+      <div class="form-group">
+        <label>Zip</label>
+        <input type="text" id="zip" class="form-control form-control-lg" placeholder="Enter your zipcode">
+
+        <label>Would you prefer a small, medium, or large dog?</label>
+        <select id="size" class="browser-default">
+          <option value="" disabled selected>Choose your option</option>
+          <option value="S">Small</option>
+          <option value="M">Medium</option>
+          <option value="L">Large</option>
+        </select>
+
+        <label>Age</label>
+        <select id="age" class="browser-default">
+          <option value="" disabled selected>Choose your option</option>
+          <option value="Baby">Puppy</option>
+          <option value="Young">Young</option>
+          <option value="Adult">Adult</option>
+          <option value="Senior">Senior</option>
+        </select>
+
+        <label>Genered</label>
+        <select id="sex" class="browser-default">
+          <option value="" disabled selected>Choose your option</option>
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+        </select>
+
+        <label>Kid friendly</label>
+        <p>
+          <label>
+            <input name="group1" type="radio" checked />
+            <span>Yes</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input name="group1" type="radio" />
+            <span>No</span>
+          </label>
+        </p>
+
+
+
+        <input type="submit" value="Search" id="submitZip" class="btn btn-dark btn-lg btn-block mt-3 darken-2">
+      </div>
+    </div>
+
+    <div id="results" class="col s8">
+      <div class="row" id="card-row">
+
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
