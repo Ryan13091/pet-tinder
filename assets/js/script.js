@@ -12,7 +12,7 @@ function bindButtons(){
 		var size = document.getElementById('size').value;
 		var age = document.getElementById('age').value;
 		var sex = document.getElementById('sex').value;
-		var url = 'http://api.petfinder.com/pet.find';
+		var url = 'https://api.petfinder.com/pet.find';
 		
 		// Within $.ajax{...} is where we fill out our query 
 		$.ajax({
