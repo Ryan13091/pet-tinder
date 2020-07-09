@@ -12,14 +12,15 @@ h1 {
 }
 h3 {
     color: white;
-    font-size: 15px !important;
+    font-size: 20px !important;
+    font-weight: bold;
 }
 .p2 {
     color: white !important;
     font-size: 15px !important;
 }
 .card {
-    height: 400px !important;
+    height: 300px !important;
     margin-left: 20px !important;
 }
 .pet {
@@ -46,7 +47,7 @@ h3 {
  .card-style {
      margin: 10px !important;
      width: 15% !important;
-     height: 210px !important;
+     height: 230px !important;
  }
  .margin {
      margin-right: 40px;

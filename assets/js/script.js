@@ -50,7 +50,7 @@ function bindButtons(){
                 newName.setAttribute('class','card-title');
 				newName.textContent = dogName;
 				var breedEl = document.createElement('p');
-				newName.setAttribute('class','p2');
+				breedEl.setAttribute('class','p2');
 				breedEl.textContent = breed;
                 
                 
