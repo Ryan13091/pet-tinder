@@ -1,7 +1,9 @@
 var apiKey = '2f95f51b181ddd27883e91878e922466'; // assign our key to a variable, easier to read
 var cardWeatherEl = document.querySelector("#weather-card");
 var addTempEl = document.getElementById('temp');
-var rowEl = document.getElementById('card-row')
+var rowEl = document.getElementById('card-row');
+var forecastTitelEl = document.getElementById('forecast');
+var cardDayEl = document.getElementById('daycards');
 // the next line and function set up the button in our html to be clickable and reactive 
 document.addEventListener('DOMContentLoaded', bindButtons);
 
@@ -96,7 +98,7 @@ function bindButtons(){
 var getCity = function (city) {
     var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=c6ee42eed2ff19934f4074a3340902d5";
 
-    // var apiForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=c6ee42eed2ff19934f4074a3340902d5";
+    var apiForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=c6ee42eed2ff19934f4074a3340902d5";
 
     fetch(apiUrl)
         .then(function (response) {
@@ -112,8 +114,21 @@ var getCity = function (city) {
             };
 
         });
-};
 
+    fetch(apiForecast)
+        .then(function (response) {
+            forecastTitelEl.innerHTML = '';
+            cardDayEl.innerHTML = '';
+            // request was successful
+            if (response.ok) {
+                response.json().then(function (data) {
+
+                    getForecast(data);
+
+                })
+            };
+        });
+};
 // function to creted the display weather for today
 var displayWeather = function (data) {
 
@@ -177,4 +192,42 @@ var displayWeather = function (data) {
     addTempEl.appendChild(humidityEl);
     addTempEl.appendChild(speedEl);
 
+}
+// function to creted the display weather for 5 days
+var getForecast = function (data) {
+    // console.log(data)
+    var titleForecastEl = document.createElement('h2');
+    titleForecastEl.textContent = '5-Day Forecast:';
+
+    for (var i = 5; i < data.list.length; i = i + 8) {
+
+        var foreCardEl = document.createElement('li');
+        foreCardEl.className = 'card col s1 list-group-item margin card-style';
+        // list-group-item-primary
+        cardDayEl.appendChild(foreCardEl);
+
+
+
+        var dateEl = document.createElement('h3');
+        dateEl.textContent = moment(data.list[i].dt_txt).format("M/D/YYYY");
+
+        var tempEl = document.createElement('p');
+        tempEl.className = 'p2';
+        tempEl.textContent = 'Temperature: ' + data.list[i].main.temp + ' °F';
+
+        var humidityEl = document.createElement('p');
+        humidityEl.className = 'p2';
+        humidityEl.textContent = 'Humidity: ' + data.list[i].main.humidity + '%';;
+
+        var iconEl = document.createElement('img');
+        iconEl.setAttribute('src', `https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}.png`);
+
+
+        foreCardEl.appendChild(dateEl);
+        foreCardEl.appendChild(iconEl);
+        foreCardEl.appendChild(tempEl);
+        foreCardEl.appendChild(humidityEl);
+    }
+
+    forecastTitelEl.appendChild(titleForecastEl);
 }

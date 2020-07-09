@@ -50,7 +50,7 @@
           <option value="F">Female</option>
         </select>
 
-        <label>Kid friendly</label>
+        <!-- <label>Kid friendly</label>
         <p>
           <label>
             <input name="group1" type="radio" checked />
@@ -62,7 +62,7 @@
             <input name="group1" type="radio" />
             <span>No</span>
           </label>
-        </p>
+        </p> -->
 
 
 
@@ -71,15 +71,20 @@
     </div>
 
     <div id="results" class="col s8">
-      <div class="row2" id="card-row">
+      <div class="row">
+        <div class="row2" id="card-row">
 
-        
+
+        </div>
+        <div class="card col s7">
+          <div id="weather-card"></div>
+          <ul id="temp"></ul>
+        </div>
       </div>
-      <div class="card col s6">
-        <div id="weather-card"></div>
-        <ul id="temp"></ul>
+      <div class="row">
+        <div id="forecast"></div>
+        <ul id="daycards" class="list-group  list-group-horizontal"></ul>
       </div>
-      
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
