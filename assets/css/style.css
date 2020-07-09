@@ -26,6 +26,9 @@ h3 {
     margin-right: 100px !important;
 }
 
+.btn {
+    margin-top: 15px;
+}
 /* star style for weather displays */
 h3 {
     color: white;
@@ -40,9 +43,10 @@ h3 {
  h2 {
      padding: 20px 0 0 20px;
  }
- .card {
-     margin: 10px;
-     width: 125%;
+ .card-style {
+     margin: 10px !important;
+     width: 15% !important;
+     height: 210px !important;
  }
  .margin {
      margin-right: 40px;
